@@ -1,0 +1,320 @@
+//variable Declarations for media queries
+$small-screen: 48rem;
+$medium-screen: 76.8rem;
+$large-screen: 102.4rem;
+$extra-large-screen: 120rem;
+$border: 0.1rem solid rgb(1, 0, 0);
+$font: Garamond, serif;
+
+//Predifined Media Queries
+@mixin media-queries {
+    @media (max-width:$small-screen) {
+        width:100%;
+        height:100vh;
+
+    }
+
+    @media (min-width:$small-screen) and (max-width:$medium-screen) {
+        width: 100%;
+        height: 100vh;
+
+    }
+
+    @media (min-width:$medium-screen) and (max-width:$large-screen) {
+        width:100%;
+        height:100vh;
+        
+
+    }
+
+    @media (min-width:$large-screen) and (max-width:$extra-large-screen) {
+        width: 100%;
+
+    }
+
+    @media (min-width:$extra-large-screen) {
+        width: 100%;
+        height:100vh;
+    }
+}
+
+//predefines-html styles
+html {
+    font-size: 10px;
+    height: 100%;
+}
+
+body {
+
+    background: rgb(254, 255, 255);
+    padding: 1rem;
+    height: 100%;
+    width: auto;
+    margin: 0;
+    padding: 2rem;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.4rem;
+    font-family: $font;
+    color: rgb(35, 81, 81);
+    font-weight: 300;
+    width: auto;
+
+}
+
+//predefines-button styles
+button {
+    display: flex;
+    height: 3rem;
+    width: 12rem;
+    background-color: transparent;
+    border-style: none;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: $font;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 300;
+    justify-content: center;
+    background-color: #406c6d;
+}
+
+button:hover {
+    background-color: rgb(37, 77, 76);
+    color: rgb(243, 255, 255);
+}
+
+//main containner
+.main {
+
+    @include media-queries;
+    display: flex;
+    width: auto;
+    height:100%;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-self: center;
+    border-radius: 0.5rem;
+   
+
+
+    //create task container where task addition is done
+
+    .create-task {
+
+        flex-direction: column;
+        display: flex;
+        height:auto;
+        width: auto;
+        padding: 1rem;
+        border-radius: 0.1rem;
+        gap: 2rem;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 0.5rem;
+        border-top: none;
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
+        
+        
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 4rem;
+            font-family: $font;
+            color: #1e555f;
+            font-weight: 200;
+
+        }
+
+        .create-task-input {
+
+            display: flex;
+            height: 5rem;
+            width:auto;
+            margin: 0;
+            padding: 0;
+            font-size: 2rem;
+            font-family: $font;
+            color: teal;
+            background-color: transparent;
+            border: 0.1rem solid teal;
+            border-radius: 1rem;
+            font-weight: 400;
+            text-indent: 1.5rem;
+
+
+        }
+
+        input::placeholder {
+            display: flex;
+            height: auto;
+            width: auto;
+            margin: 0;
+            padding: 0;
+            font-size: 2rem;
+            font-family: $font;
+            color: rgb(38, 74, 67);
+            background-color: transparent;
+            font-weight: 200;
+            padding: 0rem;
+
+        }
+
+        span {
+            display: flex;
+            height: auto;
+            width: auto;
+            margin: 0;
+            padding-left:1rem;
+            font-size: 2rem;
+            font-family: $font;
+            color: red;
+            background-color: transparent;
+            font-weight: 200;
+            
+
+        }
+
+    }
+
+    //Second container who holds the two containers read-task and completed-task.
+    .read-complete-task {
+
+        display: flex;
+        height:auto;
+        width: auto;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 0rem;
+        overflow-x: auto;
+        overflow-y: auto;
+        border-radius: 0.5rem;
+        background-color: #afcac0;
+        padding: 2rem;
+        overflow:hidden;
+       
+
+
+        //container where tasks are visible and can be delete, update and drag.
+        .read-task {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height:30rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            overflow-y: auto;
+            gap: 1rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #c1d4cd;
+
+            //tasks list where task will be displayed from create task container.
+
+            .added-task {
+
+                display: flex;
+                flex-direction: row;
+                height: auto;
+                width: auto;
+                gap: 1rem;
+                flex-wrap: wrap;
+                padding: 2rem;
+                border-radius: 1rem;
+                background-color: #4f696b;
+                justify-content: space-between;
+
+
+                span {
+                    display: flex;
+                    width: auto;
+                    font-size: 2rem;
+                    font-family: $font;
+                    color: #e6eced;
+                    font-weight: 500;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+
+                .svg-update-delete-container {
+
+                    display: flex;
+                    flex-direction: row;
+                    height: auto;
+                    width: 7rem;
+                    justify-content: space-between;
+
+
+                    .svg-icon {
+                        display: flex;
+                        margin: 0;
+                        display: flex;
+                        width: auto;
+                        font-size: 2rem;
+                        font-family: $font;
+                        color: #fafefe;
+                        font-weight: 500;
+                        align-self: center;
+                        padding-left: 0rem;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+
+
+                    }
+
+                }
+            }
+
+
+        }
+
+        //completd task container where task will be displayed which are dragged from read-task container.
+        .completed-task {
+            @extend .read-task;
+            background-color: #c5cfcb;
+
+            .svg-icon {
+                display: flex;
+                margin: 0;
+                display: flex;
+                width: auto;
+                font-size: 2rem;
+                font-family: $font;
+                color: #fafefe;
+                font-weight: 500;
+                align-self: center;
+                padding-left: 0rem;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+            }
+
+            //Tasks dragged from here from read-task container will be displayed here.
+            .completed-task-item {
+
+                @extend .added-task;
+
+            }
+
+        }
+
+    }
+}
